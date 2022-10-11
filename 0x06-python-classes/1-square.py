@@ -3,13 +3,12 @@
 # Kalkidan
 """Define a class Square."""
 
-
 class Square:
-    """Represent a square."""
+    """Represents a square"""
 
     def __init__(self, size):
-        """Initialize a new Square.
-        Args:
-            size (int): The size of the new square.
+        """Initializing this square class
+        Args: size - represnets the size of the square defined
         """
-       self.__size = size
+
+        self.__size = size
