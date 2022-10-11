@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 1-square.py
+# 2-square.py
 # Kalkidan
 """Define a class Square."""
 
