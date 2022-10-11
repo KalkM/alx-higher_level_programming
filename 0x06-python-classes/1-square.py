@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-# 1-square.py
-# Kalkidan
-"""Define a class Square."""
+"""Square class definition"""
+
 
 class Square:
-    """Represents a square"""
-
+    """Represents a square
+    Attributes:
+        __size (int): size of a side of the square
+    """
     def __init__(self, size):
-        """Initializing this square class
-        Args: size - represnets the size of the square defined
+        """Initializes a square
+        Args:
+            size (int): size of a side of the square
+        Returns: None
         """
-
         self.__size = size
