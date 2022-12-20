@@ -1,17 +1,19 @@
 #!/usr/bin/node
-const Square5 = require('./5-square');
 
-class Square extends Square5 {
-  charPrint (c) {
-    if (typeof (c) === 'undefined') {
-      c = 'X';
-    }
+// Print function with custom characters to represent the Square
 
-    for (let i = 0; i < this.height; i++) {
-      console.log(c.repeat(this.width));
-    }
+const OldSquare = require('./5-square');
+
+module.exports = class Square extends OldSquare {
+  constructor (size) {
+    super(size, size);
   }
-}
 
-module.exports = Square;
-Footer
+  double () {
+    super.double();
+  }
+
+  charPrint (c = 'X') {
+    super.print(c);
+  }
+};
