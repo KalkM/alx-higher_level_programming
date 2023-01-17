@@ -6,6 +6,7 @@ Usage: ./7-error_code.py <URL>
 import sys
 import requests
 
+
 if __name__ == "__main__":
     url = sys.argv[1]
 
