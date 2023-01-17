@@ -1,18 +1,19 @@
 #!/usr/bin/python3
-"""Sends a POST request to http://0.0.0.0:5000/search_user with a given letter.
-Usage: ./8-json_api.py <letter>
-  - The letter is sent as the value of the variable `q`.
-  - If no letter is provided, sends `q=""`.
-"""
-import sys
-import requests
+"""ython script that takes in a URL and an email, sends a POST
+request to the passed URL with the email as a parameter,
+and displays the body of the response (decoded in utf-8)"""
 
+
+import requests
+import sys
 
 if __name__ == "__main__":
-    letter = "" if len(sys.argv) == 1 else sys.argv[1]
-    payload = {"q": letter}
-
-    r = requests.post("http://0.0.0.0:5000/search_user", data=payload)
+    quest = ""
+    url = 'http://0.0.0.0:5000/search_user'
+    if len(sys.argv) > 1:
+        quest = sys.argv[1]
+    values = {"q": quest}
+    r = requests.post(url, data=values)
     try:
         response = r.json()
         if response == {}:
