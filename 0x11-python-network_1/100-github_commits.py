@@ -1,15 +1,21 @@
 #!/usr/bin/python3
-'''Python script to get list of commits'''
+"""Lists the 10 most recent commits on a given GitHub repository.
+Usage: ./100-github_commits.py <repository name> <repository owner>
+"""
+import sys
+import requests
+
 
 if __name__ == "__main__":
-    import requests
-    import sys
+    url = "https://api.github.com/repos/{}/{}/commits".format(
+        sys.argv[2], sys.argv[1])
 
-    repo = sys.argv[1]
-    owner = sys.argv[2]
-
-    res = requests.get(f"https://api.github.com/repos/{owner}/{repo}/commits")
-    res_json = res.json()
-    for item in res_json:
-        print(f"{item.get('sha')}: \
-{item.get('commit').get('author').get('name')}")
+    r = requests.get(url)
+    commits = r.json()
+    try:
+        for i in range(10):
+            print("{}: {}".format(
+                commits[i].get("sha"),
+                commits[i].get("commit").get("author").get("name")))
+    except IndexError:
+        pass
